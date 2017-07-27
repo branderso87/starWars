@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 // Import Link <<<<<<<<<<<<<<<<<<
-
+import {Link} from 'react-router-dom'
 
 class List extends Component {
   render(){
@@ -11,6 +11,7 @@ class List extends Component {
         let endpoint = films.substr(films.indexOf("/api/") + 5);
         return <li key={films}>
             {/*Add a Link set to /films. Pass in the value of 'endpoint' for the text <<<<<<<<<<<<<<<*/}
+            <Link to="/films">endpoint</Link>
           </li>
       })
       return (
@@ -76,7 +77,7 @@ class Starships extends Component {
       return response.json();
     }).then((data) => {
       this.setState({starships: data.results})
-    });
+    })
   }
 
 
@@ -88,8 +89,8 @@ class Starships extends Component {
       <div className="app-body offset col-lg-10 col-lg-offset-1">
         <List starships={this.state.starships}/>
       </div>
-    );
+    )
   }
 }
 
-export default Starships;
+export default Starships

@@ -1,24 +1,26 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 // Import Link <<<<<<<<<<<<<
-
+import {Link} from 'react-router-dom'
 
 class List extends Component {
   render(){
     console.log('props', this.props.people)
-    let data = this.props.people;
+    let data = this.props.people
     let List = data.map((people)=>{
-      let url = people.url;
-      let endpoint = url.substr(url.indexOf("/api/") + 5);
+      let url = people.url
+      let endpoint = url.substr(url.indexOf("/api/") + 5)
       let films = people.films.map((films)=>{
-        let endpoint = films.substr(films.indexOf("/api/") + 5);
+        let endpoint = films.substr(films.indexOf("/api/") + 5)
         return <li key={films}>
           {/*Add a Link set to /films. Pass in the value of 'endpoint' for the text <<<<<<<<<<<<<<<<<<<<<<<<*/}
+          <Link to="/films">endpoint</Link>
         </li>
       })
       let starships = people.starships.map((starships)=>{
-        let endpoint = starships.substr(starships.indexOf("/api/") + 5 );
+        let endpoint = starships.substr(starships.indexOf("/api/") + 5 )
         return <li key={starships}>
           {/*Add a Link set to /starships. Pass in the value of 'endpoint' for the text <<<<<<<<<<<<<<<<<*/}
+          <Link to="/starships">endpoint</Link>
           </li>
       })
       return (
@@ -79,7 +81,7 @@ class List extends Component {
 
 class People extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       'people': [],
     }
@@ -89,7 +91,7 @@ class People extends Component {
     let url ="https://swapi.co/api/people/";
     // Fetch data from API
     fetch(url).then((response) => {
-      return response.json();
+      return response.json()
     }).then((data) => {
       this.setState({people: data.results})
     });
@@ -105,4 +107,4 @@ class People extends Component {
   }
 }
 
-export default People;
+export default People

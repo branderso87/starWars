@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import React, {Component} from 'react'
+import {Link} from 'react-router-dom'
 
 class Explorer extends Component {
 
@@ -13,6 +13,7 @@ class Explorer extends Component {
               <h3>Characters</h3>
               <p>Explore Characters</p>
               {/*Add a Link set to /charaters. The link should have a button that says 'Let's go!*/}
+              <Link to='/characters'><button>Let's Go</button></Link>
             </div>
           </div>
 
